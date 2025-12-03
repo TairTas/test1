@@ -1,12 +1,12 @@
 // ВАШИ УЧЕТНЫЕ ДАННЫЕ FIREBASE
 const firebaseConfig = {
-  apiKey: "AIzaSyDIEydSnMe0r2xvqTo63N9DN676_DsNn0o",
-  authDomain: "ttfotgassessmentenhanced.firebaseapp.com",
-  projectId: "ttfotgassessmentenhanced",
-  databaseURL: "https://ttfotgassessmentenhanced-default-rtdb.firebaseio.com",
-  storageBucket: "ttfotgassessmentenhanced.appspot.com",
-  messagingSenderId: "1017801402503",
-  appId: "1:1017801402503:web:67e54f87ceec9760fff022"
+  apiKey: "AIzaSyCQh5Tvuiy6a8csKhtIlywa60lslT7a43U",
+  authDomain: "quizt-ttfotg.firebaseapp.com",
+  databaseURL: "https://quizt-ttfotg-default-rtdb.firebaseio.com",
+  projectId: "quizt-ttfotg",
+  storageBucket: "quizt-ttfotg.firebasestorage.app",
+  messagingSenderId: "41415712562",
+  appId: "1:41415712562:web:59ddcc35b354b19450c12b"
 };
 
 firebase.initializeApp(firebaseConfig);
