@@ -6,21 +6,19 @@
     <title>Облачный Калькулятор Оценок</title>
     <link rel="stylesheet" href="style.css">
     
-    <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 </head>
 <body>
 
-    <!-- Authentication Overlay -->
     <div id="auth-overlay">
         <div id="auth-modal">
             <div id="login-section">
                 <h3>Вход в систему</h3>
                 <div class="auth-form">
-                    <input type="email" id="login-email" placeholder="Email" autocomplete="username">
-                    <input type="password" id="login-password" placeholder="Пароль" autocomplete="current-password">
+                    <input type="email" id="login-email" placeholder="Email">
+                    <input type="password" id="login-password" placeholder="Пароль">
                     <p id="login-error" class="auth-error-msg"></p>
                     <button id="login-button" class="button">Войти</button>
                 </div>
@@ -29,10 +27,10 @@
             <div id="register-section" class="hidden">
                 <h3>Регистрация</h3>
                 <div class="auth-form">
-                    <input type="text" id="register-username" placeholder="Имя пользователя (3-15 симв.)" autocomplete="username">
+                    <input type="text" id="register-username" placeholder="Имя пользователя (3-15 симв.)">
                     <input type="text" id="register-class" placeholder="Класс (например, 7A)">
-                    <input type="email" id="register-email" placeholder="Email" autocomplete="email">
-                    <input type="password" id="register-password" placeholder="Пароль (мин. 6 симв.)" autocomplete="new-password">
+                    <input type="email" id="register-email" placeholder="Email">
+                    <input type="password" id="register-password" placeholder="Пароль (мин. 6 симв.)">
                     <p id="register-error" class="auth-error-msg"></p>
                     <button id="register-button" class="button">Создать аккаунт</button>
                 </div>
@@ -41,7 +39,6 @@
         </div>
     </div>
 
-    <!-- Main Application Container -->
     <div id="app-container" class="hidden">
         <header id="app-header">
             <span id="user-display-name"></span>
@@ -60,7 +57,6 @@
         </nav>
         
         <main id="app-main">
-            <!-- Profile View -->
             <div id="profile-view">
                 <div class="content-card">
                     <div class="profile-header">
@@ -118,7 +114,6 @@
                 </div>
             </div>
             
-            <!-- Grades View -->
             <div id="grades-view" class="hidden">
                 <div class="content-card wide">
                      <div class="sidebar"><table><thead><tr><th></th><th>Предмет</th><th>Общий %</th><th>Оценка</th></tr></thead><tbody id="my-grades-sidebar-body"></tbody></table></div>
@@ -126,12 +121,10 @@
                 </div>
             </div>
 
-            <!-- Stats View -->
             <div id="stats-view" class="hidden">
                  <div class="content-card"><h3>Статистика за четверть</h3><div class="quarter-selector" id="stats-q-selector"><button class="q-btn active" data-quarter="1">1</button><button class="q-btn" data-quarter="2">2</button><button class="q-btn" data-quarter="3">3</button><button class="q-btn" data-quarter="4">4</button></div><div id="stats-results-container" class="stats-results-container"></div></div>
             </div>
 
-            <!-- Users View -->
             <div id="users-view" class="hidden">
                 <div class="content-card">
                     <div id="friends-search-section">
@@ -148,7 +141,6 @@
                 </div>
             </div>
             
-            <!-- Leaderboard View -->
             <div id="leaderboard-view" class="hidden">
                 <div class="content-card">
                     <h3>Лидерборд</h3>
@@ -176,7 +168,6 @@
                 </div>
             </div>
 
-            <!-- Chat/Forum View -->
             <div id="chat-view" class="hidden">
                 <div class="content-card">
                     <h3>Форум</h3>
@@ -202,11 +193,10 @@
                     </div>
                 </div>
                 <div id="posts-container">
-                    <!-- Posts will load here -->
+                    <!-- Посты будут загружаться сюда -->
                 </div>
             </div>
 
-            <!-- Admin Panel View -->
             <div id="admin-panel-view" class="hidden">
                 <div class="content-card">
                     <h3>Админ Панель</h3>
@@ -217,7 +207,7 @@
                         <div id="admin-tab-messages" class="admin-tab" data-tab="messages">Сообщения</div>
                     </div>
                     <div id="admin-content-container">
-                        <!-- Admin content loads here -->
+                        <!-- Контент для вкладок будет загружаться сюда -->
                     </div>
                 </div>
             </div>
@@ -225,16 +215,15 @@
         </main>
     </div>
 
-    <!-- Announcement Overlay -->
-    <div id="announcement-overlay" class="hidden">
+    <script src="script.js"></script>
+      <div id="announcement-overlay" class="hidden">
         <div id="announcement-modal">
             <button id="announcement-close-btn">&times;</button>
             <h3>Сообщение от администрации</h3>
             <p id="announcement-text"></p>
         </div>
     </div>
-    
-    <!-- Image Modal -->
+    <!-- Image modal for expanded post images -->
     <div id="image-modal-overlay" class="hidden">
         <div id="image-modal">
             <button id="image-modal-close" aria-label="Закрыть изображение">&times;</button>
@@ -242,7 +231,6 @@
         </div>
     </div>
     
-    <!-- Compare Modal -->
     <div id="compare-modal-overlay" class="hidden">
         <div id="compare-modal">
             <button id="compare-modal-close-btn">&times;</button>
@@ -258,7 +246,6 @@
         </div>
     </div>
     
-    <!-- Compare View -->
     <div id="compare-view" class="hidden">
         <div class="content-card">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
@@ -274,7 +261,5 @@
             <div id="compare-profiles-container" class="compare-profiles-container"></div>
         </div>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
